@@ -23,7 +23,9 @@ namespace Fungus
         /// <summary> Replace the existing portrait. </summary>
         Replace,
         /// <summary> Move portrait to the front. </summary>
-        MoveToFront
+        MoveToFront,
+        /// 
+        ZoomToPortrait
     }
 
     /// <summary>

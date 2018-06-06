@@ -22,7 +22,12 @@ namespace Fungus
 
         [Tooltip("The music will start playing again at end.")]
         [SerializeField] protected bool loop = true;
-    
+
+        [Range(0, 1)]
+        [Tooltip("Volume level of the sound effect")]
+        [SerializeField]
+        protected float volume = 1;
+
         [Tooltip("Length of time to fade out previous playing music.")]
         [SerializeField] protected float fadeDuration = 1f;
 
@@ -33,7 +38,7 @@ namespace Fungus
             var musicManager = FungusManager.Instance.MusicManager;
 
             float startTime = Mathf.Max(0, atTime);
-            musicManager.PlayMusic(musicClip, loop, fadeDuration, startTime);
+            musicManager.PlayMusic(musicClip, loop, fadeDuration, volume, startTime);
                 
             Continue();
         }

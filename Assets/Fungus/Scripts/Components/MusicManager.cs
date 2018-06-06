@@ -31,7 +31,7 @@ namespace Fungus
         /// Plays game music using an audio clip.
         /// One music clip may be played at a time.
         /// </summary>
-        public void PlayMusic(AudioClip musicClip, bool loop, float fadeDuration, float atTime)
+        public void PlayMusic(AudioClip musicClip, bool loop, float fadeDuration, float volume, float atTime)
         {
             if (audioSource == null || audioSource.clip == musicClip)
             {
@@ -42,6 +42,7 @@ namespace Fungus
             {
                 audioSource.clip = musicClip;
                 audioSource.loop = loop;
+                audioSource.volume = volume;
                 audioSource.time = atTime;  // May be inaccurate if the audio source is compressed http://docs.unity3d.com/ScriptReference/AudioSource-time.html BK
                 audioSource.Play();
             }
@@ -58,6 +59,7 @@ namespace Fungus
                         audioSource.volume = startVolume;
                         audioSource.clip = musicClip;
                         audioSource.loop = loop;
+                        audioSource.volume = volume;
                         audioSource.time = atTime;  // May be inaccurate if the audio source is compressed http://docs.unity3d.com/ScriptReference/AudioSource-time.html BK
                         audioSource.Play();
                     });
